@@ -1,0 +1,55 @@
+data_dir: /home/weiyu/Research/Multimodal_Perception/multimodal_interactive_perception/data/role_value_data_non_repeating_10_value_negative_expanded
+experiment_dir: /home/weiyu/Research/Multimodal_Perception/multimodal_interactive_perception/experiments/${env:DATETIME}
+validation_query_roles:
+  - material
+  - purity
+  - room
+  - dimension
+test_query_roles:
+  - class
+  - material
+  - color
+  - transparency
+  - dimension
+  - physical_property
+  - shape
+  - temperature
+  - spatial_distribution
+  - dampness
+  - purity
+  - room
+  - specific_place
+  - price
+  - weight
+  - size
+
+random_seed: 1
+
+# whether to smooth data labels when loading data
+label_smooth: 0.1
+max_arity: 24
+
+# training
+device: 1
+batch_size: 128
+max_epochs: 100
+learning_rate: 0.0001
+weight_decay: 0
+grad_clipping: 1.0
+use_scheduler: False
+scheduler_step_size: 50
+scheduler_gamma: 0.95
+
+# model params
+embedding_dim: 200
+num_encoder_layer: 2
+num_attention_heads: 4
+encoder_hidden_dim: 512
+encoder_dropout: 0.1
+encoder_activation: relu
+use_output_layer_norm: False
+use_position_embedding: False
+pooling_method: None
+use_mask_pos_output: True
+
+model: Transformer

@@ -1,0 +1,41 @@
+data_dir: ../data/role_value_data_non_repeating_10_value_negative_expanded
+experiment_dir: ../experiments/${env:DATETIME}
+validation_query_roles:
+  - material
+  - purity
+  - room
+test_query_roles:
+  - class
+  - material
+  - color
+  - transparency
+  - dimension
+  - physical_property
+  - shape
+  - temperature
+  - spatial_distribution
+  - dampness
+  - purity
+  - room
+  - specific_place
+  - price
+  - weight
+  - size
+
+random_seed: 1
+# whether to smooth data labels when loading data
+label_smooth: False
+max_arity: 24
+
+# training
+device: 1
+batch_size: 256
+max_epochs: 200
+learning_rate: 0.0005
+weight_decay: 0
+
+# model params
+embedding_size: 100
+num_filters: 200
+fully_connected_dimensions: 1200
+model: NaLP

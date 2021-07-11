@@ -1,0 +1,95 @@
+# base params
+base:
+  # types of properties that can be converted to entities
+  entity_property_types:
+    - class
+    - material
+    - color
+    - transparency
+    - dimension
+    - physical_property
+    - shape
+    - temperature
+    - spatial_distribution
+    - dampness
+    - purity
+    - room
+    - specific_place
+  # other types of properties that cannot be converted to entities
+  other_property_types:
+    - name
+    - price
+    - weight
+    - size
+    - state_description
+    - image
+  # where object data and object instance data are stored
+  raw_data_file: ../data/LINK_dataset/object_data.pkl
+
+# params for converting data to role-value format
+build_role_value_data:
+  # random seed
+  random_seed: 1
+  # only testing the following entity types
+  test_roles:
+    - class
+    - material
+    - color
+    - transparency
+    - dimension
+    - physical_property
+    - shape
+    - temperature
+    - spatial_distribution
+    - dampness
+    - purity
+    - room
+    - specific_place
+    - price
+    - weight
+    - size
+  # the ratio for subsample a certain percentage of object instance for each object
+  subsample_object_instance_ratio: 1.0
+  # split data into train/valid/test with following ratio
+  split_ratio:
+    - 0.7
+    - 0.15
+    - 0.15
+  # whether to use a more complicated data splitting method that ensures no repeating data considering the base
+  # properties
+  non_repeating_split: True
+  # base properties for the non-repeating split method
+  non_repeating_split_base_properties:
+    - class
+    - material
+    - color
+    - transparency
+    - dimension
+    - physical_property
+    - shape
+    - weight
+    - price
+    - size
+  # add reverse roles when building dictionary
+  dict_add_role_reverse: False
+  # when sampling negative examples for training data, sample the following x% of examples by perturbing values
+  perturb_train_replace_value_ratio: 1.0
+  # when sampling negative examples for training data, ignore samples that have role-value pairs as subset of those in
+  # positive instances
+  perturb_train_check_subset: True
+  # the ratio of sampled negative examples to existing positive examples
+  perturb_train_negative_ratio: 10
+  # when sampling negative examples for validation data, whether perturb roles
+  perturb_validation_roles: True
+  # when sampling negative examples for validation data, whether perturb values
+  perturb_validation_values: True
+  # when sampling negative examples for validation data, whether check subset
+  perturb_validation_check_subset: True
+  # when sampling negative examples for testing data, whether perturb roles
+  perturb_test_roles: True
+  # when sampling negative examples for testing data, whether perturb values
+  perturb_test_values: True
+  # when sampling negative examples for testing data, whether check subset
+  perturb_test_check_subset: True
+  # directory for saving processed data
+  save_dir: ../data/role_value_data_non_repeating_10_value_negative_expanded

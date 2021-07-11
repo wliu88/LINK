@@ -1,0 +1,41 @@
+data_dir: /home/weiyu/Research/Multimodal_Perception/multimodal_interactive_perception/data/role_value_data_non_repeating_10_value_negative_expanded
+experiment_dir: /home/weiyu/Research/Multimodal_Perception/multimodal_interactive_perception/experiments/${env:DATETIME}
+validation_query_roles:
+  - material
+  - purity
+  - room
+test_query_roles:
+  - class
+  - material
+  - color
+  - transparency
+  - dimension
+  - physical_property
+  - shape
+  - temperature
+  - spatial_distribution
+  - dampness
+  - purity
+  - room
+  - specific_place
+  - price
+  - weight
+  - size
+
+random_seed: 1
+# whether to smooth data labels when loading data
+label_smooth: False
+max_arity: 24
+
+# training
+device: 1
+batch_size: 256
+max_epochs: 65
+learning_rate: 1e-4
+weight_decay: 0.04
+
+# model params
+embedding_size: 250
+num_filters: 100
+fully_connected_dimensions: 1000
+model: NaLP

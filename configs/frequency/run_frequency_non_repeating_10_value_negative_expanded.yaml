@@ -1,0 +1,27 @@
+data_dir: ../data/role_value_data_non_repeating_10_value_negative_expanded
+experiment_dir: ../experiments/${env:DATETIME}
+validation_query_roles:
+  - material
+  - purity
+  - room
+test_query_roles:
+  - material
+  - color
+  - transparency
+  - dimension
+  - physical_property
+  - shape
+  - temperature
+  - spatial_distribution
+  - dampness
+  - purity
+  - room
+  - specific_place
+  - price
+  - weight
+  - size
+
+random_seed: 1
+main_role: class
+run_all: False
+model: Frequency

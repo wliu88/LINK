@@ -1,0 +1,26 @@
+data_dir: /home/weiyu/Research/Multimodal_Perception/multimodal_interactive_perception/data/role_value_data_non_repeating_10_value_negative_expanded
+experiment_dir: /home/weiyu/Research/Multimodal_Perception/multimodal_interactive_perception/experiments/${env:DATETIME}
+validation_query_roles:
+  - material
+  - purity
+  - room
+test_query_roles:
+  - class
+  - material
+  - color
+  - transparency
+  - dimension
+  - physical_property
+  - shape
+  - temperature
+  - spatial_distribution
+  - dampness
+  - purity
+  - room
+  - specific_place
+  - price
+  - weight
+  - size
+
+random_seed: 1
+model: Random
