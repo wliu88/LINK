@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Data Visualization</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Data Visualization</h1>
+
+    <div class="form">
+        <form action="/" method="POST">
+            <label for="query">Query:</label>
+            <input type="text" id="query" name="query" value="class=cup,dampness=wet,spatial_distribution=empty" size="50"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</div>
+{% endblock %}

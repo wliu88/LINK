@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>LINK dataset</title>
+
+    <style>
+        .content {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        img {
+            /*width: 80%;*/
+            /*margin: auto;*/
+            border: 3px solid black;
+            padding: 10px;
+        }
+
+        figure {
+            /*width: 100%;*/
+            /*margin: auto;*/
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        figure figcaption {
+            /*text-align: center;*/
+            width: 80%;
+            margin: auto;
+            font-style: italic;
+        }
+
+        li {
+            margin: 3px 0;
+        }
+
+        /*ol {*/
+        /*    counter-reset: item*/
+        /*}*/
+
+        /*li {*/
+        /*    display: block*/
+        /*}*/
+
+        /*li:before {*/
+        /*    content: counters(item, ".") ". ";*/
+        /*    counter-increment: item*/
+        /*}*/
+
+        /*table {*/
+            /*margin: 0px;*/
+            /*border-collapse: collapse;*/
+            /*padding: 0px;*/
+        /*}*/
+
+        tr.spaceUnder>td {
+            padding-bottom: 0.75em;
+        }
+
+        hr.class-1 {
+            border-top: 3px solid grey;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="content">
+    <!-- Title -->
+    <h1>Visualizing Multimodal Instance-Level Object Data</h1>
+    <div id="accordion">
+
+        <!-- Tab -->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                        <h4> Query </h4>
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <ul>
+                        {% for key in query_dict %}
+                        <li>{{ key }}: {{ query_dict[key] }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<!--        <div class="card">-->
+<!--            <div class="card-header" id="headingTwo">-->
+<!--                <h5 class="mb-0">-->
+<!--                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"-->
+<!--                            aria-controls="collapseTwo">-->
+<!--                        <h4> Summary </h4>-->
+<!--                    </button>-->
+<!--                </h5>-->
+<!--            </div>-->
+
+<!--            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">-->
+<!--                <div class="card-body">-->
+<!--                    {}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                            aria-controls="collapseThree">
+                        <h4> Object Instances </h4>
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+
+                    {% for object in objects %}
+                    <p><span style="color:black"><strong>Object {{ object["id"] }}:{{ object["iid"] }}</strong></span></p>
+                    <div><img src="{{ object["img_url"] }}" style="width:700px;"></div>
+                    <ul>
+                        <li><span style="color:orange">state description: {{ object["state_description"] }}</span></li>
+                        <li><span style="color:orange">room: {{ object["room"] }}</span></li>
+                        <li><span style="color:orange">location: {{ object["specific_place"] }}</span></li>
+                        <li><span style="color:orange">cleanliness: {{ object["purity"] }}</span></li>
+                        <li><span style="color:orange">dampness: {{ object["dampness"] }}</span></li>
+                        <li><span style="color:orange">fullness: {{ object["spatial_distribution"] }}</span></li>
+                        <li><span style="color:orange">temperature: {{ object["temperature"] }}</span></li>
+
+                        <li><span style="color:mediumseagreen">material: {{ object["material"] }}</span></li>
+                        <li><span style="color:mediumseagreen">dimension: {{ object["dimension"] }}</span></li>
+                        <li><span style="color:mediumseagreen">physical property: {{ object["physical_property"] }}</span></li>
+                        <li><span style="color:mediumseagreen">shape: {{ object["shape"] }}</span></li>
+                        <li><span style="color:mediumseagreen">color: {{ object["color"] }}</span></li>
+                        <li><span style="color:mediumseagreen">transparency: {{ object["transparency"] }}</span></li>
+
+                        <li><span style="color:steelblue">class: {{ object["class"] }}</span></li>
+                        <li><span style="color:steelblue">name: {{ object["name"] }}</span></li>
+                        <li><span style="color:steelblue">price: {{ object["price"] }}</span></li>
+                        <li><span style="color:steelblue">weight: {{ object["weight"] }}</span></li>
+                        <li><span style="color:steelblue">size: {{ object["size"] }}</span></li>
+                    </ul>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
