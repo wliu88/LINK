@@ -1,0 +1,30 @@
+data_dir: /home/weiyu/Research/LINK/data/role_value_data_non_repeating_10_value_negative_expanded
+experiment_dir: /home/weiyu/Research/LINK/experiments/${env:DATETIME}
+validation_query_roles:
+  - material
+  - purity
+  - room
+  - dimension
+test_query_roles:
+#   - class
+#  - material
+#  - color
+#  - transparency
+#  - dimension
+#  - physical_property
+#  - shape
+#  - temperature
+#  - spatial_distribution
+#  - dampness
+#  - purity
+  - room
+#  - specific_place
+#  - price
+#  - weight
+#  - size
+
+random_seed: 1
+run_all: False
+model: Frequency
+
+max_arity: 24
